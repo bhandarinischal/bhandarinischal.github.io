@@ -24,6 +24,7 @@ there are audiences and the speakers during any presentation, and one gets to be
 
 - [Susan McConnell (Stanford): Designing effective scientific presentations](https://www.youtube.com/watch?v=Hp7Id3Yb9XQ)
 - [A curated list of tips on various topics by awesome-tips](https://github.com/jbhuang0604/awesome-tips?tab=readme-ov-file)
+- [How to Speak by  Patrick Winston](https://www.youtube.com/watch?v=Unzc731iCUY)
 
 some tips will work for you, and others you won't relate much, which is okay and expected as their is always a wide range of preference among people/personalities.
 
