@@ -1,7 +1,7 @@
 ---
 name: Nischal Bhandari
 username: nischallllll
-email: nischal.bhandari@colorado.edu
+email: nischal.bhandari1@colorado.edu
 location: Boulder, CO
 description: Computational biologist and IQ Bio fellow at CU Boulder.
 social:

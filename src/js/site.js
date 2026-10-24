@@ -14,14 +14,14 @@
   const toggle = document.querySelector('[data-theme-toggle]');
   const setTheme = (theme, persist) => {
     root.dataset.theme = theme;
-    if (persist) { try { localStorage.setItem('theme', theme); } catch (e) {} }
+    if (persist) { try { localStorage.setItem('theme', theme); } catch (e) { } }
     toggle?.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     themeListeners.forEach((fn) => fn());
   };
   toggle?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true));
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', (e) => {
     let saved = null;
-    try { saved = localStorage.getItem('theme'); } catch (err) {}
+    try { saved = localStorage.getItem('theme'); } catch (err) { }
     if (!saved) setTheme(e.matches ? 'dark' : 'light', false);
   });
   setTheme(root.dataset.theme || 'light', false);
@@ -103,7 +103,7 @@
         const x1 = cx + R * Math.sin(t), x2 = cx + R * Math.sin(t + off), m = (x1 + x2) / 2;
         const base = SEQ[i % SEQ.length];
         rungs += `<path d="M${f(x1)} ${y}L${f(m)} ${y}" class="bb" style="stroke:${NT[base]}"/>`
-               + `<path d="M${f(m)} ${y}L${f(x2)} ${y}" class="bb" style="stroke:${NT[PAIR[base]]}"/>`;
+          + `<path d="M${f(m)} ${y}L${f(x2)} ${y}" class="bb" style="stroke:${NT[PAIR[base]]}"/>`;
       }
       return { w: 60, h, body: `${rungs}<path d="${a}" class="bb"/><path d="${b}" class="bb"/>` };
     },
@@ -122,7 +122,7 @@
       });
       const loop = 'GAAAUA';
       for (let i = 0; i < loop.length; i++) {
-        const ang = Math.PI * (1.15 + (i + 0.5) * (0.7 * 2 / loop.length)) ;
+        const ang = Math.PI * (1.15 + (i + 0.5) * (0.7 * 2 / loop.length));
         body += `<circle cx="${f(cx + r * Math.cos(ang))}" cy="${f(cy + r * Math.sin(ang))}" r="3" class="n${loop[i].toLowerCase()}"/>`;
       }
       body += `<text class="lbl" x="${x1 - 30}" y="${yBottom + 40}">5′</text><text class="lbl" x="${x2 + 22}" y="${yBottom + 42}">3′</text>`;
@@ -210,9 +210,9 @@
       { m: 'beta', x: 2, y: 66, s: 0.85, rot: 12, depth: 0.11 },
       { m: 'adenine', x: 92, y: 40, s: 1.2, rot: 0, depth: 0.18 },
       { m: 'peptide', x: 8, y: 44, s: 1, rot: 24, depth: 0.12 },
-      { m: 'seq', a: ['5′-AUG GCC AAC UGA-3′'], x: 70, y: 88, s: 1, rot: -4, depth: 0.06 },
+      // { m: 'seq', a: ['5′-AUG GCC AAC UGA-3′'], x: 70, y: 88, s: 1, rot: -4, depth: 0.06 },
       { m: 'dna', a: [220], x: 95, y: 74, s: 0.8, rot: 14, depth: 0.16 },
-      { m: 'seq', a: ['3′-TAC CGG TTG ACT-5′'], x: 4, y: 90, s: 0.9, rot: 6, depth: 0.09 },
+      // { m: 'seq', a: ['3′-TAC CGG TTG ACT-5′'], x: 4, y: 90, s: 0.9, rot: 6, depth: 0.09 },
     ];
     if (quiet) slots = slots.filter((_, i) => [0, 1, 2, 3, 4].includes(i));
     if (small) slots = slots.filter((_, i) => [1, 3, 4].includes(i)).map((s) => ({ ...s, s: s.s * 0.7 }));

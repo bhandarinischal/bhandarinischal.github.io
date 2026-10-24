@@ -12,10 +12,10 @@
     </ul>
     {% endif %}
 
-    <div class="hero__actions">
+    {# <div class="hero__actions">
       <a class="button button--primary" href="{{ home.cv }}" target="_blank" rel="noopener">Curriculum vitae <span aria-hidden="true">↗</span></a>
       <a class="button" href="mailto:{{ profile.email }}">Get in touch</a>
-    </div>
+    </div> #}
 
     <figure class="codons" aria-label="The name {{ profile.name.split()[0] }} written as an mRNA sequence and its protein translation">
       <div class="codons__strand">
@@ -28,7 +28,7 @@
         {% endfor %}
         <span class="codons__end">3′</span>
       </div>
-      <figcaption>mRNA → protein</figcaption>
+     
     </figure>
   </div>
 
