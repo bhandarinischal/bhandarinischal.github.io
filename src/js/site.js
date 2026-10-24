@@ -209,7 +209,7 @@
       { m: 'alpha', x: 80, y: 62, s: 0.9, rot: -18, depth: 0.05 },
       { m: 'beta', x: 2, y: 66, s: 0.85, rot: 12, depth: 0.11 },
       { m: 'adenine', x: 92, y: 40, s: 1.2, rot: 0, depth: 0.18 },
-      { m: 'peptide', x: 8, y: 44, s: 1, rot: 24, depth: 0.12 },
+      // { m: 'peptide', x: 8, y: 44, s: 1, rot: 24, depth: 0.12 },
       // { m: 'seq', a: ['5′-AUG GCC AAC UGA-3′'], x: 70, y: 88, s: 1, rot: -4, depth: 0.06 },
       { m: 'dna', a: [220], x: 95, y: 74, s: 0.8, rot: 14, depth: 0.16 },
       // { m: 'seq', a: ['3′-TAC CGG TTG ACT-5′'], x: 4, y: 90, s: 0.9, rot: 6, depth: 0.09 },
