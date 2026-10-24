@@ -1,16 +1,17 @@
 {% extends "base.j2" %}
 {% block content %}
 <section class="page-hero">
+  <p class="eyebrow">{{ items | length }} {{ 'entry' if items | length == 1 else 'entries' }}</p>
   <h1>{{ page_heading }}</h1>
-  <p>{{ page_description }}</p>
+  <p class="page-hero__lede">{{ page_description }}</p>
 </section>
-<section class="collection-page" aria-label="{{ page_heading }} list">
+<section class="collection-page" aria-label="{{ page_heading }}">
   {% if items %}
-  <div class="record-grid record-grid--full">
+  <div class="entry-list">
     {% for item in items %}{% include "record_card.j2" %}{% endfor %}
   </div>
   {% else %}
-  <p class="empty-state">This section is ready for its first Markdown entry.</p>
+  <p class="empty-state">Nothing here yet — add a Markdown file to get started.</p>
   {% endif %}
 </section>
 {% endblock %}

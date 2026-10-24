@@ -2,4 +2,3 @@ Jinja2>=3.1.0
 PyYAML>=6.0
 Markdown>=3.7
 beautifulsoup4
-requests

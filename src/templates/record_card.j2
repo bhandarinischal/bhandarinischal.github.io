@@ -1,21 +1,27 @@
-<article class="record-card reveal">
+{# One entry in a list (publication, talk, project, or note). #}
+{% set external = is_external_url(item.url) %}
+{% set tag = heading_tag | default('h2') %}
+<article class="entry reveal">
   {% if item.url %}
-  <a class="record-card__link" href="{{ item.url }}"{% if is_external_url(item.url) %} target="_blank" rel="noopener noreferrer"{% endif %}>
+  <a class="entry__link" href="{{ item.url }}"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>
   {% else %}
-  <div class="record-card__link">
+  <div class="entry__link">
   {% endif %}
-    <div class="record-card__meta">
-      {% if item.venue %}<span>{{ item.venue }}</span>{% endif %}
-      {% if item.year %}<time>{{ item.year }}</time>{% elif item.date %}<time>{{ item.date | format_date }}</time>{% endif %}
+    <div class="entry__aside">
+      {% if item.date %}<time datetime="{{ item.date }}">{{ item.date | format_date }}</time>
+      {% elif item.year %}<time>{{ item.year }}</time>{% endif %}
     </div>
-    <h2>{{ item.title }}</h2>
-    {% if item.authors %}<p class="record-card__authors">{{ item.authors }}</p>{% endif %}
-    {% if item.summary %}<p class="record-card__summary">{{ item.summary }}</p>{% endif %}
-    {% if item.tags %}
-    <ul class="tag-list" aria-label="Topics">
-      {% for tag in item.tags %}<li>{{ tag }}</li>{% endfor %}
-    </ul>
-    {% endif %}
-    {% if item.url %}<span class="record-card__action">Open <span aria-hidden="true">↗</span></span>{% endif %}
+    <div class="entry__body">
+      {% if item.venue %}<p class="entry__venue">{{ item.venue }}</p>{% endif %}
+      <{{ tag }} class="entry__title">{{ item.title }}</{{ tag }}>
+      {% if item.authors %}<p class="entry__authors">{{ item.authors }}</p>{% endif %}
+      {% if item.summary %}<p class="entry__summary">{{ item.summary | plain }}</p>{% endif %}
+      {% if item.tags %}
+      <ul class="tag-list" aria-label="Topics">
+        {% for t in item.tags %}<li>{{ t }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% if item.url %}<span class="entry__arrow" aria-hidden="true">{{ '↗' if external else '→' }}</span>{% endif %}
   {% if item.url %}</a>{% else %}</div>{% endif %}
 </article>

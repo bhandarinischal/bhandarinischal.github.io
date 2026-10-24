@@ -1,13 +1,19 @@
 {% extends "base.j2" %}
 {% block content %}
 <article class="note-page">
-  <a class="back-link" href="../blog.html">← Notes</a>
-  <header>
-    {% if note.tags %}<p class="eyebrow">{{ note.tags | join(' · ') }}</p>{% endif %}
+  <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> All notes</a>
+  <header class="note-page__header">
+    <p class="eyebrow">
+      {% if note.tags %}{{ note.tags | join(' · ') }}{% endif %}
+      {% if note.date %}<span class="dot" aria-hidden="true">·</span><time datetime="{{ note.date }}">{{ note.date | format_date }}</time>{% endif %}
+      <span class="dot" aria-hidden="true">·</span>{{ note.reading_time }} min read
+    </p>
     <h1>{{ note.title }}</h1>
-    {% if note.date %}<p class="note-page__date">{{ note.date | format_date }}</p>{% endif %}
     {% if note.summary %}<p class="note-page__summary">{{ note.summary }}</p>{% endif %}
   </header>
   <div class="markdown-content note-page__body">{{ note.body_html }}</div>
+  <footer class="note-page__footer">
+    <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> Back to all notes</a>
+  </footer>
 </article>
 {% endblock %}

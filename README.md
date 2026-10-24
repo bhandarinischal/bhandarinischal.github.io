@@ -35,6 +35,14 @@ Optional one-paragraph summary for the card.
 
 The text beneath the front matter is ordinary Markdown. It is optional for papers, talks, and projects; it becomes the card summary when present.
 
+## Handy extras
+
+- **Checklists** in notes: write `- [ ] item` or `- [x] item`; they render as checkboxes.
+- **Codon strip** on the home page spells your first name as mRNA → protein. Override the word with `codon_name: Something` in `content/profile.md` (letters with no amino acid, like B, J, O, U, X, Z, are skipped).
+- **Research themes** under the hero come from `themes:` in `content/home.md`.
+- **Hide an entry** without deleting it: add `draft: true` to its front matter.
+- **Colours and fonts** are the variables at the top of `src/css/site.css`. The floating DNA/RNA/protein motifs and the hero helix live in `src/js/site.js`.
+
 ## Build
 
 ```bash
