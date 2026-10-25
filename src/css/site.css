@@ -38,9 +38,11 @@
   --header-bg: rgba(246, 244, 238, 0.78);
   --shadow: 0 1px 2px rgba(22, 32, 28, 0.04), 0 12px 32px -12px rgba(22, 32, 28, 0.14);
 
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-display: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /*--font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif; */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-mono: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; */
 
   --wide: 72rem;
   --content: 60rem;
@@ -533,100 +535,43 @@ p {
 }
 
 
-/* Codon strip — the first name, as mRNA and protein ---------------------- */
+/* Name in the hero title, written as mRNA codons ------------------------- */
 
-.codons {
-  margin: 2.75rem 0 0;
-  max-width: 100%;
+.name-codons {
+  display: inline-block;
+  padding-top: 0.12em;      /* room for the codons above the letters */
+  white-space: nowrap;
 }
+.name-codons__inner { display: inline; letter-spacing: 0.035em; }
 
-.codons__strand {
+.name-codon { position: relative; cursor: default; }
+
+/* Each codon floats centred above the letter it encodes */
+.name-codon__nt {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 0.15rem 0.35rem;
-  font: 400 0.88rem/1 var(--font-mono);
+  margin-bottom: -0.13em;
+  font: 500 max(0.55rem, 0.1em)/1 var(--font-mono);
+  letter-spacing: 0;
+  transform: translateX(-50%);
+  animation: codon-in 600ms var(--ease) both;
+  animation-delay: calc(450ms + var(--i) * 80ms);
+  transition: transform 250ms var(--ease);
 }
+@media (max-width: 520px) { .name-codons__inner { letter-spacing: 0.08em; } }
+@keyframes codon-in { from { opacity: 0; transform: translate(-50%, 6px); } }
 
-.codons__end {
-  padding-top: 0.35rem;
-  color: var(--text-faint);
-  font-size: 0.7rem;
-}
+.name-codon__aa { transition: color 200ms var(--ease); }
+.name-codon:hover .name-codon__aa { color: var(--accent); }
+.name-codon:hover .name-codon__nt { transform: translate(-50%, -3px); }
 
-.codon {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.3rem 0.4rem;
-  border-radius: 6px;
-  cursor: default;
-  animation: rise 600ms var(--ease) both;
-  animation-delay: calc(500ms + var(--i) * 70ms);
-  transition: background-color 160ms var(--ease);
-}
-
-.codon:hover {
-  background: var(--accent-soft);
-}
-
-.codon__nt {
-  display: flex;
-  letter-spacing: 0.02em;
-}
-
-.nt {
-  font-weight: 500;
-}
-
-.nt--A {
-  color: var(--nt-a);
-}
-
-.nt--C {
-  color: var(--nt-c);
-}
-
-.nt--G {
-  color: var(--nt-g);
-}
-
-.nt--U,
-.nt--T {
-  color: var(--nt-u);
-}
-
-.codon__aa {
-  display: grid;
-  place-items: center;
-  width: 1.45rem;
-  height: 1.45rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
-  color: var(--text);
-  font-size: 0.7rem;
-  transition: background-color 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
-}
-
-.codon:hover .codon__aa {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg);
-}
-
-.codon--start .codon__aa,
-.codon--stop .codon__aa {
-  border-style: dashed;
-  color: var(--text-faint);
-}
-
-.codons figcaption {
-  margin-top: 0.6rem;
-  color: var(--text-faint);
-  font: 400 0.7rem/1 var(--font-mono);
-  letter-spacing: 0.06em;
-}
+.nt { font-weight: 500; }
+.nt--A { color: var(--nt-a); }
+.nt--C { color: var(--nt-c); }
+.nt--G { color: var(--nt-g); }
+.nt--U, .nt--T { color: var(--nt-u); }
 
 
 /* ==========================================================================
@@ -1543,15 +1488,6 @@ a.entry__link:hover .entry__arrow {
   .markdown-content .feature-list li::before {
     margin-bottom: 0.75rem;
   }
-
-  .codons__strand {
-    gap: 0.1rem 0.15rem;
-    font-size: 0.72rem;
-  }
-
-  .codon {
-    padding-inline: 0.15rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1580,7 +1516,7 @@ a.entry__link:hover .entry__arrow {
   .hero__art,
   .theme-toggle,
   .progress,
-  .codons {
+  .name-codon__nt {
     display: none !important;
   }
 

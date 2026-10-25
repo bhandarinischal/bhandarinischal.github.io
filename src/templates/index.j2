@@ -3,7 +3,15 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__content">
     {% if home.eyebrow %}<p class="eyebrow">{{ home.eyebrow }}</p>{% endif %}
-    <h1 id="hero-title">{{ home.title }}</h1>
+    <h1 id="hero-title">
+      {%- if hero_title.letters -%}
+      {{ hero_title.before }}<span class="name-codons" aria-label="{{ hero_title.name }}" title="{{ hero_title.name }}, written in mRNA codons"><span class="name-codons__inner" aria-hidden="true">
+        {%- for l in hero_title.letters -%}
+        <span class="name-codon" style="--i: {{ loop.index0 }}"><span class="name-codon__nt">{% for nt in l.codon %}<b class="nt nt--{{ nt }}">{{ nt }}</b>{% endfor %}</span><span class="name-codon__aa">{{ l.ch }}</span></span>
+        {%- endfor -%}
+      </span></span>{{ hero_title.after }}
+      {%- else -%}{{ home.title }}{%- endif -%}
+    </h1>
     <p class="hero__summary">{{ home.summary }}</p>
 
     {% if home.themes %}
@@ -17,19 +25,6 @@
       <a class="button" href="mailto:{{ profile.email }}">Get in touch</a>
     </div> #}
 
-    <figure class="codons" aria-label="The name {{ profile.name.split()[0] }} written as an mRNA sequence and its protein translation">
-      <div class="codons__strand">
-        <span class="codons__end">5′</span>
-        {% for c in codons %}
-        <span class="codon{% if c.kind %} codon--{{ c.kind }}{% endif %}" style="--i: {{ loop.index0 }}">
-          <span class="codon__nt">{% for nt in c.codon %}<b class="nt nt--{{ nt }}">{{ nt }}</b>{% endfor %}</span>
-          <span class="codon__aa">{{ c.aa }}</span>
-        </span>
-        {% endfor %}
-        <span class="codons__end">3′</span>
-      </div>
-     
-    </figure>
   </div>
 
   <div class="hero__art" aria-hidden="true">

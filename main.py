@@ -177,13 +177,22 @@ def format_date(value: Any) -> str:
         return str(value)
 
 
-def translate_name(name: str) -> list[dict[str, str]]:
-    """Encode a name as mRNA codons -> amino acids (letters with no amino acid are skipped)."""
-    letters = [ch for ch in name.upper() if ch in CODONS]
-    codons = [{"codon": "AUG", "aa": "M", "kind": "start"}]
-    codons += [{"codon": CODONS[ch], "aa": ch, "kind": ""} for ch in letters]
-    codons.append({"codon": "UGA", "aa": "*", "kind": "stop"})
-    return codons
+def split_title(title: str, name: str) -> dict[str, Any]:
+    """Split the hero title around `name` and encode each letter of it as an mRNA codon.
+
+    "Hi, I am Nischal." -> before "Hi, I am ", name letters N-i-s-c-h-a-l, after "."
+    Letters with no amino acid (B, J, O, U, X, Z) are shown without a codon.
+    """
+    match = re.search(re.escape(name), title, re.IGNORECASE) if name else None
+    if not match:
+        return {"before": title, "letters": [], "after": "", "name": ""}
+    word = match.group(0)
+    return {
+        "before": title[: match.start()],
+        "after": title[match.end() :],
+        "name": word,
+        "letters": [{"ch": ch, "codon": CODONS.get(ch.upper(), "")} for ch in word],
+    }
 
 
 class Site:
@@ -229,7 +238,7 @@ def main() -> None:
         "talks": talks,
         "projects": projects,
         "notes": notes,
-        "codons": translate_name(codon_name),
+        "hero_title": split_title(str(home.get("title", "")), codon_name),
         "page_title": f"{profile['name']} · Computational biology",
         "page_description": profile.get("description", ""),
         "nav_current": "home",
