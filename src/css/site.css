@@ -414,7 +414,8 @@ p {
 
 .hero h1 {
   margin: 0;
-  font: 400 clamp(3.4rem, 8.5vw, 7rem)/0.95 var(--font-display);
+  /* sized so "Hi, I am Nischal." stays on one line beside the helix */
+  font: 400 clamp(3rem, 5.6vw, 5.2rem)/0.95 var(--font-display);
   letter-spacing: -0.025em;
 }
 
@@ -560,7 +561,7 @@ p {
   animation-delay: calc(450ms + var(--i) * 80ms);
   transition: transform 250ms var(--ease);
 }
-@media (max-width: 520px) { .name-codons__inner { letter-spacing: 0.08em; } }
+@media (max-width: 520px) { .name-codons__inner { letter-spacing: 0.06em; } }
 @keyframes codon-in { from { opacity: 0; transform: translate(-50%, 6px); } }
 
 .name-codon__aa { transition: color 200ms var(--ease); }
@@ -1371,6 +1372,8 @@ a.entry__link:hover .entry__arrow {
    ========================================================================== */
 
 @media (max-width: 960px) {
+  .hero h1 { font-size: clamp(2.2rem, 10.2vw, 5.2rem); }
+
   .hero {
     grid-template-columns: 1fr;
     min-height: 0;
