@@ -32,7 +32,10 @@ some tips will work for you, and others you won't relate much, which is okay and
 # writing
 
 YES! (sooner or later)
+learn:
+
 latex, docs, etc
+
 citation manager!
 
 # grants and fellowships
