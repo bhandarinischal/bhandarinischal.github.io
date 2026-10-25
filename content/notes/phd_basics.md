@@ -6,7 +6,7 @@ category: "training"
 draft: false
 ---
 
-# reading papers
+### reading papers
 
 reading research articles and reviews is one of the regular tasks as a researcher. one reads papers to:
 
@@ -17,7 +17,7 @@ and so on.
 
 while reading the papers, it's often a good idea to keep track of the papers and notes on them. getting used to tools like *google scholar, zotero/mendeley, obsidian/notion/apple notes/onenote, etc.* is helpful in the long term.
 
-# presentation
+### presentation
 
 research talks are embedded in research culture in various forms -- posters, talks, whiteboards, etc.-- and rightly so. they serve several purposes, and I think the most significant one is to invite a researcher to be one of the contributing/active/engaged members of the field. 
 
@@ -29,7 +29,7 @@ there are audiences and the speakers during any presentation, and one gets to be
 
 some tips will work for you, and others you won't relate much, which is okay and expected as their is always a wide range of preference among people/personalities.
 
-# writing
+### writing
 
 YES! (sooner or later)
 
@@ -37,12 +37,12 @@ learn:
 latex, docs, etc        
 citation manager!
 
-# grants and fellowships
+### grants and fellowships
 
 
 
 
-# other basic skills
+### other basic skills
 - time management
 - critical thinking, troubleshooting
 - collaboration
