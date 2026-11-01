@@ -1,8 +1,9 @@
 {% extends "base.j2" %}
 {% block content %}
-<article class="note-page">
-  <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> All notes</a>
+{% set has_toc = note.toc | length > 1 %}
+<article class="note-page{% if has_toc %} note-page--toc{% endif %}">
   <header class="note-page__header">
+    <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> All notes</a>
     <p class="eyebrow">
       {% if note.tags %}{{ note.tags | join(' · ') }}{% endif %}
       {% if note.date %}<span class="dot" aria-hidden="true">·</span><time datetime="{{ note.date }}">{{ note.date | format_date }}</time>{% endif %}
@@ -11,7 +12,20 @@
     <h1>{{ note.title }}</h1>
     {% if note.summary %}<p class="note-page__summary">{{ note.summary }}</p>{% endif %}
   </header>
+
+  {% if has_toc %}
+  <nav class="note-toc" aria-label="On this page" data-toc>
+    <p class="note-toc__title">On this page</p>
+    <ol>
+      {% for h in note.toc %}
+      <li class="note-toc__item note-toc__item--h{{ h.level }}"><a href="#{{ h.id }}">{{ h.name }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+  {% endif %}
+
   <div class="markdown-content note-page__body">{{ note.body_html }}</div>
+
   <footer class="note-page__footer">
     <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> Back to all notes</a>
   </footer>

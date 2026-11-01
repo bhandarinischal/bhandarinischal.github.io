@@ -1009,19 +1009,72 @@ a.entry__link:hover .entry__arrow {
    ========================================================================== */
 
 .note-page {
-  max-width: calc(var(--reading) + 2 * var(--gutter));
+  /* Reading column ~70 characters wide; on large screens a sticky
+     "On this page" sidebar uses the space to its left. */
+  --measure: 44rem;
+  --toc-width: 13rem;
+  display: grid;
+  grid-template-columns: minmax(0, var(--measure));
+  grid-template-areas: "header" "body" "footer";
+  justify-content: center;
+  column-gap: 4rem;
+  max-width: calc(var(--measure) + var(--toc-width) + 4rem + 2 * var(--gutter));
   margin: 0 auto;
-  padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) clamp(4rem, 8vw, 6rem);
+  padding: clamp(2rem, 5vw, 4rem) var(--gutter) clamp(4rem, 8vw, 6rem);
+}
+.note-page__header { grid-area: header; }
+.note-page__body { grid-area: body; min-width: 0; }
+.note-page__footer { grid-area: footer; }
+.note-toc { display: none; }
+
+@media (min-width: 1100px) {
+  .note-page--toc {
+    grid-template-columns: var(--toc-width) minmax(0, var(--measure));
+    grid-template-areas: ". header" "toc body" ". footer";
+  }
+  .note-toc {
+    grid-area: toc;
+    display: block;
+    align-self: start;
+    position: sticky;
+    top: 6rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-top: 2.4rem;
+  }
 }
 
+.note-toc__title {
+  margin: 0 0 0.75rem;
+  color: var(--text-faint);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.note-toc ol { margin: 0; padding: 0; list-style: none; border-left: 1px solid var(--line); }
+.note-toc a {
+  display: block;
+  margin-left: -1px;
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  border-left: 2px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.note-toc__item--h3 a { padding-left: 1.7rem; font-size: 0.85rem; }
+.note-toc a:hover { color: var(--text); }
+.note-toc a.is-active { color: var(--accent); border-left-color: var(--accent); }
+
 .note-page__header {
-  margin-top: 2.5rem;
-  padding-bottom: 2.25rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--line);
 }
 
 .note-page h1 {
-  margin: 0;
+  margin: 1.75rem 0 0;
   font: 400 clamp(2.6rem, 6vw, 4.25rem)/1 var(--font-display);
   letter-spacing: -0.02em;
 }
@@ -1035,7 +1088,8 @@ a.entry__link:hover .entry__arrow {
 .note-page__body {
   padding-top: 1rem;
   font-size: 1.15rem;
-  line-height: 1.75;
+  line-height: 1.72;
+  color: var(--text);
 }
 
 .note-page__body>* {
@@ -1082,7 +1136,7 @@ a.entry__link:hover .entry__arrow {
 }
 
 .note-page__body li {
-  margin: 0.4rem 0;
+  margin: 0.6rem 0;
   padding-left: 0.25rem;
 }
 

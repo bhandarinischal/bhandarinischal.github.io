@@ -121,6 +121,28 @@ def reading_time(html: Any) -> int:
     return max(1, math.ceil(words / 220))
 
 
+def table_of_contents(body: str) -> list[dict[str, Any]]:
+    """Section headings (h1-h3) of a Markdown body, for the notes sidebar."""
+    md = markdown.Markdown(extensions=MD_EXTENSIONS)
+    md.convert(body)
+    entries: list[dict[str, Any]] = []
+
+    def walk(tokens: list[dict[str, Any]]) -> None:
+        for token in tokens:
+            if token["level"] <= 3:
+                entries.append(
+                    {
+                        "id": token["id"],
+                        "name": plain_text(token["name"]),
+                        "level": token["level"],
+                    }
+                )
+            walk(token.get("children", []))
+
+    walk(getattr(md, "toc_tokens", []))
+    return entries
+
+
 def read_document(path: Path) -> dict[str, Any]:
     metadata, body = parse_markdown(path.read_text(encoding="utf-8"))
     body_html = render_markdown(body)
@@ -130,6 +152,7 @@ def read_document(path: Path) -> dict[str, Any]:
         "source": path,
         "slug": path.stem,
         "body_html": body_html,
+        "toc": table_of_contents(body),
         "summary": render_inline_markdown(summary_source or plain_text(body_html)),
         "reading_time": reading_time(body_html),
     }

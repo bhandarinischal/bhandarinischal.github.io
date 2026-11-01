@@ -67,6 +67,19 @@
     });
   }
 
+
+  /* 2c. Notes: highlight the current heading in the "On this page" list -- */
+  const toc = document.querySelector('[data-toc]');
+  if (toc) {
+    const links = [...toc.querySelectorAll('a[href^="#"]')];
+    const targets = links.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1)))).filter(Boolean);
+    scrollHandlers.push(() => {
+      let current = targets[0];
+      targets.forEach((t) => { if (t.getBoundingClientRect().top < window.innerHeight * 0.3) current = t; });
+      links.forEach((a) => a.classList.toggle('is-active', current && a.hash === '#' + current.id));
+    });
+  }
+
   /* 3. Reveal on scroll -------------------------------------------------- */
   const reveals = document.querySelectorAll('.reveal');
   if (!reduceMotion && 'IntersectionObserver' in window) {
