@@ -27,8 +27,8 @@ Let's go over some of the costs and benefits of choosing graduate study.
 ### Advice
 1. [A Survival Guide to a PhD](https://karpathy.github.io/2016/09/07/phd/) by Andrej Karpathy
 2. [So You Want to Be an Academic?](https://anandbhattad.github.io/blogs/jr_grads.html) by Anand Bhattad
-3. [You and Your Research](https://fs.blog/great-talks/richard-hamming-your-research/) by Richard Hamming       
-> [annotated version](https://gwern.net/doc/science/1986-hamming)       
+3. [You and Your Research](https://fs.blog/great-talks/richard-hamming-your-research/) by Richard Hamming
+    - [annotated version](https://gwern.net/doc/science/1986-hamming)       
 4. [Modest Advice for New Graduate Students](https://dorsaamir.medium.com/modest-advice-for-new-graduate-students-b0be6b8dbc22) by Dorsa Amir
 5. [All about PhD Applications](https://lily-gebhart.github.io/posts/2025/11/2025-11-12-grad-school/) by Lily Gebhart
 6. [A curated list of tips on various topics](https://github.com/jbhuang0604/awesome-tips?tab=readme-ov-file) by awesome-tips
