@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    /* Apply the saved (or system) theme before paint to avoid a flash. */
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <title>How to PhD: a reading list · Nischal Bhandari</title>
+  <meta name="description" content="Essays, papers, and threads on doing research and surviving grad school">
+  <meta name="author" content="Nischal Bhandari">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How to PhD: a reading list · Nischal Bhandari">
+  <meta property="og:description" content="Essays, papers, and threads on doing research and surviving grad school">
+  <meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0f0e" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../src/images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/css/site.css">
+</head>
+<body class="page--notes">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="motifs" data-motifs aria-hidden="true"></div>
+<div class="progress" data-progress aria-hidden="true"></div>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="site-brand" href="../index.html" aria-label="Nischal Bhandari, home">
+        <svg class="site-brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2c0 5 10 5 10 10S7 17 7 22" />
+          <path d="M17 2c0 5-10 5-10 10s10 5 10 10" />
+          <path d="M9 5h6M8 8.5h8M8 15.5h8M9 19h6" class="site-brand__rungs" />
+        </svg>
+        <span>Nischal Bhandari</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary" data-nav-root>
+        <a data-nav="home" href="../index.html">Home</a>
+        <a data-nav="research" href="../publications.html">Research</a>
+        <a data-nav="talks" href="../talks.html">Talks</a>
+        <a data-nav="projects" href="../work.html">Projects</a>
+        <a data-nav="notes" href="../blog.html" aria-current="page">Notes</a>
+        <a href="../assets/Nischal_Bhandari_CV.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+<article class="note-page note-page--toc">
+  <header class="note-page__header">
+    <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> All notes</a>
+    <p class="eyebrow">
+Reading list<span class="dot" aria-hidden="true">·</span><time datetime="2026-11-02">Nov 02, 2026</time>      <span class="dot" aria-hidden="true">·</span>3 min read
+    </p>
+    <h1>How to PhD: a reading list</h1>
+<p class="note-page__summary">Essays, papers, and threads on doing research and surviving grad school</p>  </header>
+
+  <nav class="note-toc" aria-label="On this page" data-toc>
+    <p class="note-toc__title">On this page</p>
+    <ol>
+      <li class="note-toc__item note-toc__item--h3"><a href="#doing-important-research">Doing important research</a></li>
+      <li class="note-toc__item note-toc__item--h3"><a href="#scientific-integrity-and-purpose">Scientific integrity and purpose</a></li>
+      <li class="note-toc__item note-toc__item--h3"><a href="#advice-for-phd-students">Advice for PhD students</a></li>
+      <li class="note-toc__item note-toc__item--h3"><a href="#writing-and-collaboration">Writing and collaboration</a></li>
+      <li class="note-toc__item note-toc__item--h2"><a href="#from-the-crowd-reddit">From the crowd (Reddit)</a></li>
+    </ol>
+  </nav>
+
+  <div class="markdown-content note-page__body"><p>A collection of essays, advice, and survival guides regarding PhD.</p>
+<hr />
+<h3 id="doing-important-research">Doing important research</h3>
+<ul>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://gwern.net/doc/science/1986-hamming" target="_blank" rel="noopener noreferrer">You and Your Research</a> by Richard Hamming (1986)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://paulgraham.com/greatwork.html" target="_blank" rel="noopener noreferrer">How to Do Great Work</a> by Paul Graham (2023)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1016/j.molcel.2009.09.013" target="_blank" rel="noopener noreferrer">How To Choose a Good Scientific Problem</a> by Uri Alon, <em>Molecular Cell</em> (2009)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1242/jcs.033340" target="_blank" rel="noopener noreferrer">The Importance of Stupidity in Scientific Research</a> by Martin A. Schwartz, <em>Journal of Cell Science</em> (2008)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://nicholas.carlini.com/writing/2026/how-to-win-a-best-paper-award.html" target="_blank" rel="noopener noreferrer">How to win a best paper award</a> by Nicholas Carlini (2026)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://gwern.net/doc/math/1996-04-20-rota-tenlessonsiwishihadbeentaught.html" target="_blank" rel="noopener noreferrer">Ten Lessons I Wish I Had Been Taught</a> by Gian-Carlo Rota (1996)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://engineeringideas.substack.com/p/review-of-why-greatness-cannot-be" target="_blank" rel="noopener noreferrer">Review of <em>Why Greatness Cannot Be Planned</em></a>, Engineering Ideas (2021)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://www.paulgraham.com/cities.html" target="_blank" rel="noopener noreferrer">Cities and Ambition</a> by Paul Graham (2008)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://michaelnielsen.org/blog/principles-of-effective-research/" target="_blank" rel="noopener noreferrer">Principles of Effective Research</a> by Michael Nielsen (2004)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1126/science.146.3642.347" target="_blank" rel="noopener noreferrer">Strong Inference</a> by John R. Platt, <em>Science</em> (1964)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1016/S1535-6108%2802%2900133-2" target="_blank" rel="noopener noreferrer">Can a biologist fix a radio?</a> by Yuri Lazebnik, <em>Cancer Cell</em> (2002)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.23915/distill.00005" target="_blank" rel="noopener noreferrer">Research Debt</a> by Chris Olah &amp; Shan Carter, <em>Distill</em> (2017)</li>
+</ul>
+<h3 id="scientific-integrity-and-purpose">Scientific integrity and purpose</h3>
+<ul>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://calteches.library.caltech.edu/51/2/CargoCult.htm" target="_blank" rel="noopener noreferrer">Cargo Cult Science</a> by Richard Feynman (1974)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1371/journal.pbio.3004075" target="_blank" rel="noopener noreferrer">What is biology research for?</a> by Ran Blekhman, <em>PLOS Biology</em> (2026)</li>
+</ul>
+<h3 id="advice-for-phd-students">Advice for PhD students</h3>
+<ul>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://karpathy.github.io/2016/09/07/phd/" target="_blank" rel="noopener noreferrer">A Survival Guide to a PhD</a> by Andrej Karpathy (2016)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://www.cs.cmu.edu/~mblum/research/pdf/grad.html" target="_blank" rel="noopener noreferrer">Advice to a Beginning Graduate Student</a> by Manuel Blum</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://austinhenley.com/blog/lessonsfrommyphd.html" target="_blank" rel="noopener noreferrer">Lessons from my PhD</a> by Austin Z. Henley (2021)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://dorsaamir.medium.com/modest-advice-for-new-graduate-students-b0be6b8dbc22" target="_blank" rel="noopener noreferrer">Modest Advice for New Graduate Students</a> by Dorsa Amir (2018)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1038/embor.2012.15" target="_blank" rel="noopener noreferrer">PhD survival guide</a> by Leonardo Almeida-Souza &amp; Jonathan Baets, <em>EMBO reports</em> (2012)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://anandbhattad.github.io/blogs/jr_grads.html" target="_blank" rel="noopener noreferrer">So You Want to Be an Academic?</a> by Anand Bhattad (2025)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://github.com/jbhuang0604/awesome-tips" target="_blank" rel="noopener noreferrer">awesome-tips</a>, a curated list by Jia-Bin Huang</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://pg.ucsd.edu/PhD-Grind/" target="_blank" rel="noopener noreferrer">The PhD Grind</a> by Philip Guo (2012), a free memoir of one PhD from start to finish</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://dho.pathology.wisc.edu/how-to-succeed-in-phd-program-lab-rotations/" target="_blank" rel="noopener noreferrer">How to succeed in PhD program lab rotations</a> by Dave O&rsquo;Connor, UW–Madison</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1038/nrm2389" target="_blank" rel="noopener noreferrer">How to succeed in science, Part I: taking the plunge</a> by Jonathan W. Yewdell, <em>Nature Reviews Molecular Cell Biology</em> (2008)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1002/jcp.31258" target="_blank" rel="noopener noreferrer">The graduate school guide: qualifying exams and thesis committees</a> by Crystal D. Rogers et al., <em>Journal of Cellular Physiology</em> (2024)</li>
+</ul>
+<h3 id="writing-and-collaboration">Writing and collaboration</h3>
+<ul>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.5812/ijem.84795" target="_blank" rel="noopener noreferrer">The Principles of Biomedical Scientific Writing: Introduction</a> by Bahadoran et al., <em>Int. J. Endocrinology and Metabolism</em> (2018)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1371/journal.pcbi.0030044" target="_blank" rel="noopener noreferrer">Ten Simple Rules for a Successful Collaboration</a> by Vicens &amp; Bourne, <em>PLOS Computational Biology</em> (2007)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1002/adma.200400767" target="_blank" rel="noopener noreferrer">Writing a Paper</a> by George M. Whitesides, <em>Advanced Materials</em> (2004)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1371/journal.pcbi.1005619" target="_blank" rel="noopener noreferrer">Ten simple rules for structuring papers</a> by Mensh &amp; Kording, <em>PLOS Computational Biology</em> (2017)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1016/j.molcel.2009.10.007" target="_blank" rel="noopener noreferrer">How to Give a Good Talk</a> by Uri Alon, <em>Molecular Cell</em> (2009)</li>
+<li class="task"><span class="task__box" role="img" aria-label="to do"></span><a href="https://doi.org/10.1371/journal.pcbi.1003285" target="_blank" rel="noopener noreferrer">Ten Simple Rules for Reproducible Computational Research</a> by Sandve et al., <em>PLOS Computational Biology</em> (2013)</li>
+</ul>
+<hr />
+<h2 id="from-the-crowd-reddit">From the crowd (Reddit)</h2>
+<ol>
+<li><a href="https://www.reddit.com/r/academia/comments/1bfv6b2/if_you_could_give_one_advice_to_anyone_aspiring/" target="_blank" rel="noopener noreferrer">If you could give one advice to anyone aspiring to do PhD, what would it be?</a> (r/academia)</li>
+<li><a href="https://www.reddit.com/r/PhD/comments/ugrb1j/im_starting_my_phd_in_the_fall_i_would_appreciate/" target="_blank" rel="noopener noreferrer">I&rsquo;m starting my PhD in the fall. Any tips for success?</a> (r/PhD)</li>
+<li><a href="https://www.reddit.com/r/PhD/comments/10zyf1r/lets_hear_your_1_or_top_13_best_tips_rules_for/" target="_blank" rel="noopener noreferrer">Let&rsquo;s hear your top 1–3 tips for new PhD students</a> (r/PhD)</li>
+<li><a href="https://www.reddit.com/r/PhD/comments/1erditl/phd_graduates_what_is_one_piece_of_advice_you/" target="_blank" rel="noopener noreferrer">PhD graduates: one piece of advice you wish you&rsquo;d received at the start</a> (r/PhD)</li>
+<li><a href="https://www.reddit.com/r/PhdProductivity/comments/1t7nila/what_is_your_best_advice_for_finishing_your_phd/" target="_blank" rel="noopener noreferrer">Best advice for finishing your PhD in the shortest time possible?</a> (r/PhdProductivity)</li>
+</ol></div>
+
+  <footer class="note-page__footer">
+    <a class="back-link" href="../blog.html"><span aria-hidden="true">←</span> Back to all notes</a>
+  </footer>
+</article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__legal">
+      <p class="site-footer__copyright"><span class="mono">5′–</span> © 2026 Nischal Bhandari <span class="mono">–3′</span></p>
+      <nav class="site-footer__links" aria-label="Contact">
+        <a href="mailto:nischal.bhandari1@colorado.edu">Email</a>
+        <a href="https://github.com/bhandarinischal" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/nishbh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="../assets/Nischal_Bhandari_CV.pdf" target="_blank" rel="noopener">CV</a>
+      </nav>
+      
+    </div>
+  </footer>
+  <script src="../src/js/site.js" defer></script>
+</body>
+</html>
