@@ -262,7 +262,7 @@ def main() -> None:
         "projects": projects,
         "notes": notes,
         "hero_title": split_title(str(home.get("title", "")), codon_name),
-        "page_title": f"{profile['name']} · Computational biology",
+        "page_title": f"{profile['name']}",
         "page_description": profile.get("description", ""),
         "nav_current": "home",
         "asset_prefix": "",
