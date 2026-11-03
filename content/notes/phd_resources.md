@@ -5,8 +5,6 @@ category: "Reading list"
 date: 2026-11-02
 ---
 
-A collection of essays, advice, and survival guides regarding PhD.
-
 ---
 
 ### Doing important research
